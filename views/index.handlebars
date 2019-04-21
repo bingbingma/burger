@@ -1,0 +1,53 @@
+{{!-- <h1>{{lunch}}</h1> --}}
+
+{{!-- //need to create a button here which submits the button--}}
+
+{{!-- <li>
+	{{name}}
+
+	<button class="change-sleep" data-id="{{id}}" data-newsleep="{{sleep}}">
+		{{#if sleep}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
+	</button>
+
+	<button class="delete-cat" data-id="{{this.id}}">DELETE!</button>
+</li> --}}
+
+
+<h1>Burgers!</h1>
+
+<h2>Burgers to be devoured!</h2>
+
+<ul>
+    {{#each burgers}}
+    {{#unless devoured}}
+    {{> burgers/burger-block devoured=true}}
+    {{/unless}}
+    {{/each}}
+</ul>
+
+<h2>Burgers devoured!</h2>
+
+<ul>
+    {{#each burgers}}
+    {{#if devoured}}
+    {{> burgers/burger-block devoured=false}}
+    {{/if}}
+    {{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+    <div class="form-group">
+        <label for="ca">Burger Name:</label>
+        <input type="text" id="ca" name="burger_name">
+    </div>
+
+    <div class="form-group">
+        <label for="sleepy">Devoured?</label><br>
+        <input type="radio" name="devoured" value="1" checked> Devoured!<br>
+        <input type="radio" name="devoured" value="0"> Untouched!
+    </div>
+
+    <button type="submit">Add Burger</button>
+</form>
