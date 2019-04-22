@@ -2,12 +2,13 @@
 $(function() {
   $(".change-devour").on("click", function(event) {
     var id = $(this).data("id");
+    console.log(id);
     var newDevour = $(this).data("newdevour");
-
+    console.log(newDevour);
     var newDevouredState = {
       devoured: newDevour
     };
-
+    console.log(newDevouredState);
     // Send the PUT request.
     $.ajax("/api/burgers" + id, {
       type: "PUT",
@@ -24,7 +25,7 @@ $(function() {
     event.preventDefault();
 
     var newBurger = {
-      name: $("#ca")
+      burger_name: $("#ca")
         .val()
         .trim(),
       devoured: $("[name=devoured]:checked")
@@ -47,7 +48,7 @@ $(function() {
     var id = $(this).data("id");
 
     // Send the DELETE request.
-    $.ajax("/api/cats/" + id, {
+    $.ajax("/api/burgers/" + id, {
       type: "DELETE"
     }).then(function() {
       console.log("deleted burger", id);
